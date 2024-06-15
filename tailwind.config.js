@@ -1,18 +1,41 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+const { nextui } = require("@nextui-org/theme");
+// /** @type {import('tailwindcss').Config} */
+export default {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,jsx}",
+    "./app/**/*.{js,jsx}",
+    "./src/**/*.{js,jsx}",
+    "./node_modules/@nextui-org/theme/dist/components/[object Object].js",
   ],
   theme: {
+    fontFamily: {
+      inter: ["Inter", "sans-serif"],
+    },
+
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        pink: {
+          100: "#FFCBF0",
+          200: "#CF0095",
+          300: "#AB136F",
+        },
+        black: {
+          100: "#121212",
+          400: "#12121266",
+          600: "#12121299",
+        },
+        gray: {
+          100: "#FAFAFA",
+          900: "#111827",
+        },
+        light: "#FFF",
+      },
+
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
-  plugins: [],
+  plugins: [nextui()],
 };
