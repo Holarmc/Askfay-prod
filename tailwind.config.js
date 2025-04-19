@@ -1,17 +1,15 @@
-const { nextui } = require("@nextui-org/theme");
-// /** @type {import('tailwindcss').Config} */
+// const { nextui } = require("@nextui-org/theme");
+/** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./components/**/*.{js,jsx}",
-    "./app/**/*.{js,jsx}",
-    "./src/**/*.{js,jsx}",
-    "./node_modules/@nextui-org/theme/dist/components/[object Object].js",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    // "./node_modules/@nextui-org/theme/dist/components/[object Object].js",
   ],
   theme: {
     fontFamily: {
       inter: ["Inter", "sans-serif"],
     },
-
     extend: {
       colors: {
         pink: {
@@ -31,11 +29,11 @@ export default {
         light: "#FFF",
       },
 
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
+      // animation: {
+      //   "accordion-down": "accordion-down 0.2s ease-out",
+      //   "accordion-up": "accordion-up 0.2s ease-out",
+      // },
     },
   },
-  plugins: [nextui()],
+  plugins: [],
 };

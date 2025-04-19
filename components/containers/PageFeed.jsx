@@ -1,3 +1,4 @@
+'use client'
 import dynamic from "next/dynamic";
 
 import Link from "next/link";
@@ -104,7 +105,7 @@ export default function PageFeed() {
       {data.map((item) => (
         <div key={item.id} className="mb-4 border-b border-gray-300 py-4 pb-2">
           <h2 className="text-lg font-semibold text-black-100">
-            <Link href="/signin" passHref>
+            <Link href="/auth" passHref>
               {item.postContent}
             </Link>
           </h2>

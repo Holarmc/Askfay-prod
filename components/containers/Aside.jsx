@@ -2,6 +2,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
+import {
+  CommunityIcon,
+  ArticleIcon,
+  VisualmediaIcon,
+  BookmarkIcon,
+  FaqIcon,
+  NotificationIcon,
+} from "@/assets/navMenuIcons.jsx";
+
 // import {
 //   CommunityIcon,
 //   ArticleIcon,
@@ -14,69 +23,27 @@ import { usePathname } from "next/navigation";
 const serviceMenu = [
   {
     text: "Community",
-    icon: (
-      <Image
-        src="/community.svg"
-        alt="community Icon"
-        width={20}
-        height={20}
-        priority
-      />
-    ),
+    icon: <CommunityIcon />,
   },
   {
     text: "Articles",
-    icon: (
-      <Image
-        src="/article.svg"
-        alt="article Icon"
-        width={20}
-        height={20}
-        priority
-      />
-    ),
+    icon: <ArticleIcon />,
   },
   {
     text: "Visual-media",
-    icon: (
-      <Image
-        src="/visualmedia.svg"
-        alt="visualmedia Icon"
-        width={20}
-        height={20}
-        priority
-      />
-    ),
+    icon: <VisualmediaIcon />,
   },
   {
     text: "Bookmarks",
-    icon: (
-      <Image
-        src="/bookmark.svg"
-        alt="bookmark Icon"
-        width={20}
-        height={20}
-        priority
-      />
-    ),
+    icon: <BookmarkIcon />,
   },
   {
     text: "FAQ",
-    icon: (
-      <Image src="/faq.svg" alt="faq Icon" width={20} height={20} priority />
-    ),
+    icon: <FaqIcon />,
   },
   {
     text: "Notifications",
-    icon: (
-      <Image
-        src="/notification.svg"
-        alt="notification Icon"
-        width={20}
-        height={20}
-        priority
-      />
-    ),
+    icon: <NotificationIcon />,
   },
 ];
 
@@ -101,17 +68,18 @@ const topContributors = [
 
 //MAKE SURE THE DATA ITEMS USED AS KEY ARE UNIQUE WHEN QUERIED FROM THE DATABASE.
 
-const Aside = () => {
+const Aside = ({ handler }) => {
   const pathname = usePathname();
   return (
     <>
       <div className="flex flex-col justify-start gap-4">
         {serviceMenu.map((menu) => (
-          <ul className=" pb-4" key={menu.text}>
+          <ul className="pb-4" key={menu.text}>
             <li className="my-4 py-4 first:my-0 first:py-0">
               <Link
+                onClick={handler}
                 className={`link ${
-                  pathname === menu.text.toLocaleLowerCase()
+                  pathname === menu.text.toLowerCase()
                     ? "text-pink-200"
                     : "text-black-100 hover:text-pink-200"
                 }`}
@@ -135,7 +103,7 @@ const Aside = () => {
                 alt="youthExchange Logo"
                 width={104}
                 height={40}
-                priority
+                style={{ width: "auto", height: "auto" }}
               />
             </li>
           </ul>
@@ -144,9 +112,8 @@ const Aside = () => {
               <Image
                 src="/jhpiego.svg"
                 alt="jhpiego Logo"
-                width={194}
+                width={149}
                 height={40}
-                priority
               />
             </li>
           </ul>
@@ -157,19 +124,12 @@ const Aside = () => {
                 alt="familyHealth Logo"
                 width={163}
                 height={40}
-                priority
               />
             </li>
           </ul>
           <ul>
             <li className="pb-2">
-              <Image
-                src="/cphi.svg"
-                alt="cphi Logo"
-                width={149}
-                height={40}
-                priority
-              />
+              <Image src="/cphi.svg" alt="cphi Logo" width={149} height={40} />
             </li>
           </ul>
         </div>
@@ -183,7 +143,7 @@ const Aside = () => {
                   key={contributor.name}
                   src={contributor.avatar}
                   alt={contributor.name}
-                  className="h-10 w-10 rounded-full bg-slate-100 "
+                  className="h-10 w-10 rounded-full bg-slate-100"
                 />
               ))}
             </li>

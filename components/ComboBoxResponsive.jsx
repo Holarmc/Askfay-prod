@@ -16,6 +16,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { ArrowDownIcon } from "@/components//Icon";
 
 const orderBy = ["Latest", "Oldest", "Popular"];
 const contentType = ["Community", "Articles", "Videos", "Images", "Products"];
@@ -34,20 +35,7 @@ export default function ComboBoxResponsive() {
           >
             <span className="flex pl-1 text-sm leading-6 ">
               Filter
-              <svg
-                width="24"
-                height="24"
-                className="pl-2"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M17.9202 8.18018H11.6902H6.08024C5.12024 8.18018 4.64024 9.34018 5.32024 10.0202L10.5002 15.2002C11.3302 16.0302 12.6802 16.0302 13.5102 15.2002L15.4802 13.2302L18.6902 10.0202C19.3602 9.34018 18.8802 8.18018 17.9202 8.18018Z"
-                  fill="#121212"
-                  fillOpacity="0.4"
-                />
-              </svg>
+              <ArrowDownIcon />
             </span>
           </Button>
         </PopoverTrigger>
@@ -55,7 +43,7 @@ export default function ComboBoxResponsive() {
           className="w-[200px] bg-light p-0 outline-none border-none"
           align="start"
         >
-          <StatusList setOpen={setOpen} />
+          <StatusList />
         </PopoverContent>
       </Popover>
     );
@@ -104,7 +92,7 @@ export default function ComboBoxResponsive() {
   );
 }
 
-function StatusList({ setOpen }) {
+function StatusList() {
   {
     return (
       <Command>
